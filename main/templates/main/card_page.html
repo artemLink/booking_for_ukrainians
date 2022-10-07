@@ -1,0 +1,16 @@
+{% extends 'main/sample.html' %}
+{% block content%}
+    <div class="row-md-12">
+            <div class="card mb-5">
+                  <img src="{{ item.photo.url }}" class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ item.title }}</h5>
+                    <p class="card-text">{{ item.content }}</p>
+                    <p class="card-text"> {{ item.price }} грн</p>
+                  </div>
+                </div>
+
+        </div>
+
+
+{% endblock%}

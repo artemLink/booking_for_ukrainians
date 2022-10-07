@@ -1,0 +1,22 @@
+.full-page {
+
+  display:flex;
+  flex-direction:row;
+
+}
+
+.options-form {
+  width: 300px;
+  margin: 0 0 20px;
+  padding: 20px 15px;
+
+  border: 1px solid #ae63e4;
+}
+.options {
+    padding: 20px
+}
+
+.content {
+    padding: 20px
+}
+

@@ -1,0 +1,70 @@
+{% extends 'main/sample.html' %}
+{% block content%}
+
+
+
+<div class="container text-left">
+<h1>Додання нового об'єкту</h1>
+<form action="{% url 'addcard' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% if img_obj %}
+      <div class="alert alert-primary" role="alert">
+          Новий об'єкт створено
+        </div>
+    {% endif %}
+    <div class="mb-3">
+    <label for="{{ form.title.id_for_label }}" class="form-label">Назва комплексу</label>
+        {{ form.title}}
+        <div class="invalid-feedback">
+            {{ form.title.error}}
+      </div>
+    </div>
+    <div class="mb-3">
+    <label for="{{ form.description.id_for_label }}" class="form-label">Короткий опис</label>
+        {{ form.description}}
+        <div class="invalid-feedback">
+            {{ form.description.error}}
+      </div>
+    </div>
+    <div class="mb-3">
+    <label for="{{ form.content.id_for_label }}" class="form-label">Розкажіть про комплекс та його зручності</label>
+        {{ form.content}}
+        <div class="invalid-feedback">
+            {{ form.content.error}}
+      </div>
+    </div>
+    <div class="mb-3">
+    <label for="{{ form.photo.id_for_label }}" class="form-label">Завантажте фото</label>
+        {{ form.photo}}
+        <div class="invalid-feedback">
+            {{ form.photo.error}}
+      </div>
+    </div>
+    <div class="mb-3">
+    <label for="{{ form.price.id_for_label }}" class="form-label">Ціна за одну ніч</label>
+        {{ form.price}}
+        <div class="invalid-feedback">
+            {{ form.price.error}}
+      </div>
+    </div>
+    <div class="form-check">
+      <label for="{{ form.wifi.id_for_label }}" class="form-label">wi-fi</label>
+        {{ form.wifi}}
+        <div class="invalid-feedback">
+            {{ form.wifi.error}}
+      </div>
+      <label for="{{ form.pool.id_for_label }}" class="form-label">Басейн</label>
+        {{ form.pool}}
+        <div class="invalid-feedback">
+            {{ form.pool.error}}
+      </div>
+      <label for="{{ form.parking.id_for_label }}" class="form-label">Паркінг</label>
+        {{ form.parking}}
+        <div class="invalid-feedback">
+            {{ form.parking.error}}
+      </div>
+    </div>
+    <button type="submit" class="btn btn-dark">Додати</button>
+</form>
+</div>
+{% endblock %}

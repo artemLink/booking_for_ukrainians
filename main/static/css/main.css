@@ -1,0 +1,95 @@
+
+.top-menu {
+ position: relative;
+ background: rgba(34, 34, 34, .2);
+}
+p {
+ color: #524f4e;
+}
+
+header nav a {
+ background: white;
+ padding: 5px 10px;
+ border-bottom: none;
+ border-radius: 3px;
+}
+.menu-main {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+ color: black;
+}
+
+.menu-main:after {
+ content: "";
+ display: table;
+ clear: both;
+}
+
+.left-item {
+ float: left;
+}
+
+.right-item {
+ float: right;
+}
+
+
+/*
+Settings for top menu letter
+*/
+
+.menu-main a {
+ text-decoration: none;
+ display: block;
+ line-height: 80px;
+ padding: 0 20px;
+ font-size: 18px;
+ letter-spacing: 2px;
+ font-family: 'Arimo', sans-serif;
+ font-weight: bold;
+ color: black;
+ transition: .3s linear;
+}
+
+.menu-main a:hover {
+ background: rgba(0, 0, 0, .3);
+}
+
+/* Settings for find line */
+.find_line{
+
+    background: gray;
+    display: block;
+    padding: 10px;
+    margin-top: 20%;
+
+}
+
+.owner_list {
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+
+
+.full-page {
+
+  display:flex;
+  flex-direction:row;
+
+}
+.options {
+    padding: 20px;
+     float: left;
+}
+
+.content {
+    padding: 20px;
+     float: right;
+}
+
+
+
