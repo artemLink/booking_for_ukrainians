@@ -1,25 +1,24 @@
 {% extends 'main/sample.html' %}
 {% block content%}
-<div class="find_line">
+
 
     <!-- Добавить куда отправляется форма, сделать количество людей и комнат в одном (?) -->
 
 
-<form action="/find">
-    <input list="OWNER" value="" type="text" />
-        <datalist id="OWNER" class="owner_list">
-          <option>Київ
-          <option>Харків
-          <option>Дніпро
-          <option>Львів
-        </datalist>
-    <input type="date" class="date_from">
-    <input type="date" class="date_to">
-    <input type="text" placeholder="Людей" class="count_of_people">
-    <input type="text" placeholder="Кімнат" class="count_of_rooms">
-    <input type="submit" value="Шукати">
-</form>
-</div>
+    <form class="options-form" method="POST" role="form" action="{% url 'findpage' %}">
+            {% csrf_token %}
+        <div class="container-inline g-3 mt-5 align-items-center">
 
+            {% for item in form %}
+
+                 {{ item }}
+
+            {% endfor %}
+      <button type="submit" class="btn btn-primary">Пошук</button>
+              </div>
+        </div>
+
+
+    </form>
 
 {%endblock%}

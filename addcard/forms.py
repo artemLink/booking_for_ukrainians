@@ -26,10 +26,15 @@ class UserRegisterForm(UserCreationForm):
 class CardForm(ModelForm):
     class Meta():
         model = AddCard
-        fields = ['title', 'description', 'content', 'photo', 'price', 'wifi', 'pool', 'parking']
+        fields = ['title', 'description', 'content', 'photo', 'price', 'wifi', 'pool', 'parking', 'city', 'adress',
+                  'single_rooms', 'double_rooms']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control form-control-sm'}),
             'description': forms.TextInput(attrs={'class': 'form-control form-control-sm'}),
             'content': forms.Textarea(attrs={'class': 'form-control form-control-sm'}),
             'price': forms.TextInput(attrs={'class': 'form-control form-control-sm'}),
+            'city': forms.TextInput(attrs={'class': 'form-control form-control-sm'}),
+            'adress': forms.TextInput(attrs={'class': 'form-control form-control-sm'}),
+            'single_rooms': forms.TextInput(attrs={'class': 'form-control form-control-sm'}),
+            'double_rooms': forms.TextInput(attrs={'class': 'form-control form-control-sm'}),
         }

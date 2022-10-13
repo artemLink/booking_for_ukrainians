@@ -1,0 +1,11 @@
+{% extends 'main/sample.html' %}
+
+
+
+{% block content %}
+
+<h1>Об'єкт під номером {{ data }} успішно видалено!!</h1>
+
+<a href="{% url 'check_card' %}" class="btn btn-primary"> Повернутись </a>
+
+{% endblock %}

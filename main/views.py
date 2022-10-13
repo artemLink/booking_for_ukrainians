@@ -5,10 +5,16 @@ from addcard.forms import UserRegisterForm, UserLoginForm
 from django.contrib import messages
 from addcard.models import AddCard
 from django.contrib.auth import login, logout
+from .forms import index_form
 
 
 def index(request):
-    return render(request, './main/index.html')
+    print(request.user.id)
+    form = index_form
+    context = {
+        'form':form
+    }
+    return render(request, './main/index.html', context= context)
 
 
 def about(request):
@@ -19,10 +25,9 @@ def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            login(request, user)
+            form.save()
             messages.success(request, 'Вітаємо з реєстрацією!')
-            return redirect('index')
+            return redirect('user_login')
         else:
             messages.error(request, 'Помилка реєстрації')
     else:
@@ -51,6 +56,12 @@ def user_logout(request):
 def view_card(request, card_id):
     card_item = AddCard.objects.get(pk=card_id)
     content = {
-        'item': card_item,
+        'item': card_item
     }
+    try:
+        content['date_from'] = request.POST.__getitem__('date_from')
+        content['date_to'] = request.POST.__getitem__('date_to')
+    except:
+        pass
+
     return render(request, './main/card_page.html', context=content)

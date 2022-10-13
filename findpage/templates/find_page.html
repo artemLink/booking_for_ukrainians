@@ -20,8 +20,12 @@
                     <h5 class="card-title">{{ cont.title }}</h5>
                     <p class="card-text">{{ cont.content }}</p>
                     <p class="card-text"> {{ cont.price }} грн</p>
-                      <a href="{{ cont.get_absolute_url }}" class="btn btn-primary">Переглянути</a>
-
+                      <form  class="options-form" method="POST" role="form" action="{{ cont.get_absolute_url }}">
+                          {% csrf_token %}
+                          <input type="hidden" name="date_from" value="{{ date_from }}">
+                          <input type="hidden" name="date_to" value="{{ date_to }}">
+                        <button type="submit" class="btn btn-primary">Переглянути</button>
+                      </form>
                   </div>
                 </div>
             {% endfor %}

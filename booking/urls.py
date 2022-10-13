@@ -9,6 +9,8 @@ urlpatterns = [
     path('find/', include('findpage.urls')),
     path('addcard/', include('addcard.urls')),
     path('user_profile/', include('user_profile.urls')),
+    path('check_card/', include('checking.urls')),
+    path('rent_room/', include('rent.urls'), name = 'rent'),
 ]
 
 if settings.DEBUG:

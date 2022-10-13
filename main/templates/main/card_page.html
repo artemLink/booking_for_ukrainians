@@ -1,16 +1,46 @@
 {% extends 'main/sample.html' %}
 {% block content%}
+
+
+<div class="container mt-5">
+  <div class="row row-cols-2">
+    <div class="col col-lg-3">
+        <p>Бронювання з {{ date_from }} по {{ date_to }}</p>
+        <p>Одномісну</p>
+        <form  class="options-form" method="POST" role="form" action="{% url 'rent_single_room' item.id %}">
+              {% csrf_token %}
+              <input type="hidden" name="date_from" value="{{ date_from }}">
+              <input type="hidden" name="date_to" value="{{ date_to }}">
+            <button type="submit" class="btn btn-primary">Забронювати</button>
+          </form>
+        <p>Двомісну</p>
+        <form  class="options-form" method="POST" role="form" action="{% url 'rent_double_room' item.id%}">
+              {% csrf_token %}
+              <input type="hidden" name="date_from" value="{{ date_from }}">
+              <input type="hidden" name="date_to" value="{{ date_to }}">
+            <button type="submit" class="btn btn-primary">Забронювати</button>
+          </form>
+    </div>
     <div class="row-md-12">
             <div class="card mb-5">
                   <img src="{{ item.photo.url }}" class="card-img-top">
+
                   <div class="card-body">
                     <h5 class="card-title">{{ item.title }}</h5>
-                    <p class="card-text">{{ item.content }}</p>
+                    <p class="card-text">м.{{item.city}} {{ item.adress }}</p>
+                    <p class="card-text">{{item.content}}</p>
                     <p class="card-text"> {{ item.price }} грн</p>
+                    <p class="card-text">Всього кімнат: <br>Одномісних - {{ item.single_rooms }}<br>Двомісних - {{item.double_rooms}}</p>
+
+                  </div>
                   </div>
                 </div>
 
+
         </div>
+  </div>
+
+
 
 
 {% endblock%}

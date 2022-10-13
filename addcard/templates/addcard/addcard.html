@@ -2,7 +2,7 @@
 {% block content%}
 
 
-
+{% if request.user.is_authenticated %}
 <div class="container text-left">
 <h1>Додання нового об'єкту</h1>
 <form action="{% url 'addcard' %}" method="post" enctype="multipart/form-data">
@@ -64,7 +64,38 @@
             {{ form.parking.error}}
       </div>
     </div>
+     <div class="mb-3">
+    <label for="{{ form.city.id_for_label }}" class="form-label">Назва населеного пункту</label>
+        {{ form.city}}
+        <div class="invalid-feedback">
+            {{ form.city.error}}
+      </div>
+    </div>
+     <div class="mb-3">
+    <label for="{{ form.adress.id_for_label }}" class="form-label">Адреса</label>
+        {{ form.adress}}
+        <div class="invalid-feedback">
+            {{ form.adress.error}}
+      </div>
+    </div>
+     <div class="mb-3">
+    <label for="{{ form.single_room.id_for_label }}" class="form-label">Кількість одномісних кімнат</label>
+        {{ form.single_rooms}}
+        <div class="invalid-feedback">
+            {{ form.single_room.error}}
+      </div>
+    </div>
+     <div class="mb-3">
+    <label for="{{ form.double_room.id_for_label }}" class="form-label">Кількість двомісних</label>
+        {{ form.double_rooms}}
+        <div class="invalid-feedback">
+            {{ form.double_room.error}}
+      </div>
+    </div>
     <button type="submit" class="btn btn-dark">Додати</button>
 </form>
 </div>
+{% else %}
+<p>Спочатку авторизуйтесь</p>
+{% endif %}
 {% endblock %}

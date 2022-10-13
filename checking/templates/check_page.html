@@ -1,0 +1,23 @@
+{% extends 'main/sample.html' %}
+{% block content %}
+<div class="container mt-5">
+  <div class="row row-cols-1">
+<div class="row-sm-6">
+            {% for cont in data %}
+            <div class="card mb-5">
+                  <img src="{{ cont.photo.url }}" class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ cont.title }}</h5>
+                    <p class="card-text">{{ cont.content }}</p>
+                    <p class="card-text"> {{ cont.price }} грн</p>
+                      <a href="{{ cont.get_absolute_url }}" class="btn btn-primary">Переглянути</a>
+                        <a href="{% url 'publish' cont.id %}" class="btn btn-primary" type="submit">Додати</a>
+                        <a href="{% url 'check_card' %}" class="btn btn-primary"> Видалити</a>
+                  </div>
+                </div>
+            {% endfor %}
+
+        </div>
+  </div>
+</div>
+{% endblock %}
